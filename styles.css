@@ -244,3 +244,50 @@ h1{
   font-weight: 700;
 }
 .contact-item a:hover{color: var(--accent)}
+
+/* --- Smooth motion (subtle & fast) --- */
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* Fade-in up */
+.fade-up{
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fadeUp .65s ease forwards;
+}
+@keyframes fadeUp{
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+/* Stagger helper (optional) */
+.delay-1{ animation-delay: .05s; }
+.delay-2{ animation-delay: .12s; }
+.delay-3{ animation-delay: .18s; }
+
+/* Card hover */
+.card{
+  transition: transform .25s ease, border-color .25s ease, background .25s ease;
+  will-change: transform;
+}
+.card:hover{
+  transform: translateY(-6px);
+  border-color: rgba(94,234,212,.55);
+}
+
+/* Button hover */
+.btn{
+  transition: transform .18s ease, border-color .18s ease, filter .18s ease;
+}
+.btn:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.28);
+}
+
+/* Chips hover */
+.chip{
+  transition: border-color .18s ease, color .18s ease, transform .18s ease;
+}
+.chip:hover{
+  transform: translateY(-1px);
+}
