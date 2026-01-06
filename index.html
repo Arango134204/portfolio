@@ -10,12 +10,18 @@
 
   <script>
   function setLang(lang){
-    document.querySelectorAll('[data-en]').forEach(el=>{
-      el.textContent = el.dataset[lang];
+    document.documentElement.setAttribute('lang', lang);
+
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const value = el.dataset[lang];
+      // Si por alguna razón falta el texto, usa inglés como fallback
+      el.textContent = value && value.trim().length ? value : el.dataset.en;
     });
+
     localStorage.setItem('lang', lang);
   }
 
+  // Por defecto EN si no hay nada guardado
   const savedLang = localStorage.getItem('lang') || 'en';
   setLang(savedLang);
 </script>
@@ -32,8 +38,8 @@
         <a class="chip" href="#projects">Projects</a>
         <a class="chip" href="#services">Services</a>
         <a class="chip" href="#contact">Contact</a>
-        <a class="chip" href="#" onclick="setLang('en')">EN</a>
-<a class="chip" href="#" onclick="setLang('es')">ES</a>
+        <a class="chip" href="#" onclick="event.preventDefault(); setLang('en')">EN</a>
+<a class="chip" href="#" onclick="event.preventDefault(); setLang('es')">ES</a>
       </div>
     </div>
   </div>
@@ -44,6 +50,7 @@
 
       <h1 data-en="Building modern, high-performance websites for businesses."
     data-es="Creando sitios web modernos y de alto rendimiento para negocios.">
+  Building modern, high-performance websites for businesses.
 </h1>
 
       <p class="subtitle">
