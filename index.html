@@ -8,6 +8,18 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
+  <script>
+  function setLang(lang){
+    document.querySelectorAll('[data-en]').forEach(el=>{
+      el.textContent = el.dataset[lang];
+    });
+    localStorage.setItem('lang', lang);
+  }
+
+  const savedLang = localStorage.getItem('lang') || 'en';
+  setLang(savedLang);
+</script>
+
 <body>
   <div class="nav">
     <div class="nav-inner">
@@ -20,6 +32,8 @@
         <a class="chip" href="#projects">Projects</a>
         <a class="chip" href="#services">Services</a>
         <a class="chip" href="#contact">Contact</a>
+        <a class="chip" href="#" onclick="setLang('en')">EN</a>
+<a class="chip" href="#" onclick="setLang('es')">ES</a>
       </div>
     </div>
   </div>
@@ -28,7 +42,9 @@
     <section class="hero">
       <div class="kicker"><b>Open to work</b> • Freelance & Employment</div>
 
-      <h1>Building modern, high-performance websites for businesses.</h1>
+      <h1 data-en="Building modern, high-performance websites for businesses."
+    data-es="Creando sitios web modernos y de alto rendimiento para negocios.">
+</h1>
 
       <p class="subtitle">
         Web Developer focused on fast, user-friendly experiences using HTML, CSS, JavaScript,
