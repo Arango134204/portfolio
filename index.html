@@ -5,133 +5,160 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Juan José Arango | Web Developer</title>
   <meta name="description" content="Web Developer building modern, high-performance websites with JavaScript, Firebase, and WordPress." />
+  <link rel="stylesheet" href="styles.css">
 </head>
 
-<body style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 980px; margin: 60px auto; padding: 0 16px;">
-
-  <!-- HERO -->
-  <header>
-    <h1 style="margin-bottom: 6px;">Juan José Arango</h1>
-    <p style="font-size: 18px; margin: 0;">
-      <strong>Web Developer</strong> helping businesses build modern, high-performance websites
-    </p>
-    <p style="margin-top: 8px;">
-      JavaScript • Firebase • WordPress • HTML • CSS • MongoDB • Flask • REST APIs • Figma (basic)
-    </p>
-
-    <div style="margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap;">
-      <a href="#projects" style="padding:10px 14px; border:1px solid #111; text-decoration:none; color:#111; border-radius:8px;">
-        View Projects
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top">
+        <strong>Juan José Arango</strong>
+        <span>Web Developer • JavaScript • Firebase • WordPress</span>
       </a>
-      <a href="#contact" style="padding:10px 14px; border:1px solid #111; text-decoration:none; color:#111; border-radius:8px;">
-        Contact
-      </a>
+      <div class="nav-links">
+        <a class="chip" href="#about">About</a>
+        <a class="chip" href="#projects">Projects</a>
+        <a class="chip" href="#services">Services</a>
+        <a class="chip" href="#contact">Contact</a>
+      </div>
     </div>
-  </header>
+  </div>
 
-  <hr>
+  <main id="top" class="container">
+    <section class="hero">
+      <div class="kicker"><b>Open to work</b> • Freelance & Employment</div>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <h2>About</h2>
-    <p>
-      I am a Web Developer focused on building <strong>fast, modern, and user-friendly websites</strong>
-      using HTML, CSS, JavaScript, Firebase, WordPress, and Hostinger. I enjoy creating clean interfaces,
-      solving technical problems, and helping businesses strengthen their online presence.
-    </p>
-    <p>
-      I have developed websites for <strong>international clients</strong>, including projects in the
-      <strong>United States</strong>, and I continuously improve my skills through real-world practice,
-      client work, and personal projects.
-    </p>
-  </section>
+      <h1>Building modern, high-performance websites for businesses.</h1>
 
-  <!-- STRENGTHS -->
-  <section>
-    <h2>Core strengths</h2>
-    <ul>
-      <li>Front-end development with <strong>HTML, CSS, and JavaScript</strong></li>
-      <li>Dynamic data handling using <strong>Firebase</strong></li>
-      <li><strong>WordPress</strong> design, customization, hosting, and deployment</li>
-      <li>Responsive layouts optimized for all devices</li>
-      <li>Basic use of <strong>Figma</strong> for UI reference and layout interpretation</li>
-      <li>Clear communication, on-time delivery, and client satisfaction</li>
-    </ul>
-  </section>
-
-  <hr>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2>Projects</h2>
-
-    <div style="border:1px solid #ddd; border-radius:12px; padding:14px; margin-bottom: 14px;">
-      <h3>MongoBites</h3>
-      <p>
-        Web application built with Flask and MongoDB featuring CRUD operations and RESTful services.
+      <p class="subtitle">
+        Web Developer focused on fast, user-friendly experiences using HTML, CSS, JavaScript,
+        Firebase, WordPress, and Hostinger — with real client work and continuous improvement through projects.
       </p>
-      <p><strong>Tech:</strong> Python • Flask • MongoDB • REST • CRUD</p>
-      <p>
-        <a href="https://github.com/Arango134204/MongoBites" target="_blank">GitHub Repository</a>
-      </p>
+
+      <div class="pills">
+        <span class="pill">JavaScript</span>
+        <span class="pill">Firebase</span>
+        <span class="pill">WordPress</span>
+        <span class="pill">MongoDB</span>
+        <span class="pill">Flask</span>
+        <span class="pill">REST APIs</span>
+        <span class="pill">Figma (basic)</span>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-ghost" href="#contact">Contact</a>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section id="about" class="section">
+        <h2>About</h2>
+        <p>
+          I build fast, modern, and user-friendly websites using HTML, CSS, JavaScript, Firebase, WordPress, and Hostinger.
+          I enjoy clean interfaces, solving technical problems, and helping businesses strengthen their online presence.
+        </p>
+        <p>
+          I have developed websites for international clients, including projects in the United States, and I continue improving
+          through real client work and personal projects.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Core strengths</h2>
+        <ul>
+          <li>Front-end development (HTML, CSS, JavaScript)</li>
+          <li>Dynamic data handling with Firebase</li>
+          <li>WordPress customization, hosting & deployment</li>
+          <li>Responsive layouts optimized for all devices</li>
+          <li>Basic Figma usage (UI reference & layout interpretation)</li>
+          <li>Clear communication and on-time delivery</li>
+        </ul>
+      </section>
     </div>
 
-    <div style="border:1px solid #ddd; border-radius:12px; padding:14px;">
-      <h3>Business Websites (WordPress)</h3>
+    <section id="projects" class="section" style="margin-top:14px;">
+      <h2>Projects</h2>
+
+      <div class="cards">
+        <article class="card">
+          <h3>MongoBites</h3>
+          <p>
+            Web application built with Flask and MongoDB featuring CRUD operations and RESTful services.
+          </p>
+          <div class="meta">
+            <span class="tag">Python</span>
+            <span class="tag">Flask</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">REST</span>
+            <span class="tag">CRUD</span>
+          </div>
+          <div class="links">
+            <a class="link" target="_blank" href="https://github.com/Arango134204/MongoBites">GitHub Repository</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Business Websites (WordPress)</h3>
+          <p>
+            Responsive and performance-optimized websites for businesses, including hosting configuration and deployment.
+          </p>
+          <div class="meta">
+            <span class="tag">WordPress</span>
+            <span class="tag">Hosting</span>
+            <span class="tag">Responsive UI</span>
+            <span class="tag">Performance</span>
+          </div>
+          <div class="links">
+            <a class="link" href="#contact">Request work samples</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <h2>Services</h2>
+      <ul>
+        <li>Business websites (WordPress or custom)</li>
+        <li>Landing pages optimized for conversions</li>
+        <li>Performance and responsiveness improvements</li>
+        <li>Hosting setup and deployment (Netlify / Hostinger)</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
       <p>
-        Responsive and performance-optimized websites for businesses using WordPress,
-        including hosting configuration and deployment.
+        I’m open to web development projects, long-term collaborations, and opportunities to build custom websites.
       </p>
-      <p><strong>Tech:</strong> WordPress • Hosting • Responsive Design</p>
-    </div>
-  </section>
 
-  <hr>
+      <div class="contact-list">
+        <div class="contact-item">
+          <span>Email</span>
+          <a href="mailto:juanjoara1342@icloud.com">juanjoara1342@icloud.com</a>
+        </div>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <h2>Services</h2>
-    <ul>
-      <li>Business websites (WordPress or custom)</li>
-      <li>Landing pages optimized for conversions</li>
-      <li>Website performance and responsiveness improvements</li>
-      <li>Hosting setup and deployment (Netlify / Hostinger)</li>
-    </ul>
-  </section>
+        <div class="contact-item">
+          <span>LinkedIn</span>
+          <a target="_blank" href="https://www.linkedin.com/in/juan-josé-arango-54924a36a">View profile</a>
+        </div>
 
-  <hr>
+        <div class="contact-item">
+          <span>GitHub</span>
+          <a target="_blank" href="https://github.com/Arango134204">Arango134204</a>
+        </div>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>
-      I’m currently open to web development projects, long-term collaborations,
-      and opportunities to build custom websites.
-    </p>
+        <div class="contact-item">
+          <span>WhatsApp</span>
+          <a target="_blank" href="https://wa.me/573006030655">+57 300 603 0655</a>
+        </div>
+      </div>
+    </section>
 
-    <ul>
-      <li><strong>Email:</strong> <a href="mailto:juanjoara1342@icloud.com">juanjoara1342@icloud.com</a></li>
-      <li><strong>LinkedIn:</strong>
-        <a href="https://www.linkedin.com/in/juan-josé-arango-54924a36a" target="_blank">
-          linkedin.com/in/juan-josé-arango
-        </a>
-      </li>
-      <li><strong>GitHub:</strong>
-        <a href="https://github.com/Arango134204" target="_blank">
-          github.com/Arango134204
-        </a>
-      </li>
-      <li><strong>WhatsApp:</strong>
-        <a href="https://wa.me/573006030655" target="_blank">
-          +57 300 603 0655
-        </a>
-      </li>
-    </ul>
-  </section>
-
-  <footer style="margin: 40px 0 10px; color:#666; font-size: 14px;">
-    © <span id="year"></span> Juan José Arango — Built with HTML/CSS and deployed on Netlify.
-  </footer>
+    <footer class="footer">
+      © <span id="year"></span> Juan José Arango — Built with HTML/CSS and deployed on Netlify.
+    </footer>
+  </main>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
