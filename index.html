@@ -8,24 +8,6 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-  <script>
-  function setLang(lang){
-    document.documentElement.setAttribute('lang', lang);
-
-    document.querySelectorAll('[data-en]').forEach(el => {
-      const value = el.dataset[lang];
-      // Si por alguna razón falta el texto, usa inglés como fallback
-      el.textContent = value && value.trim().length ? value : el.dataset.en;
-    });
-
-    localStorage.setItem('lang', lang);
-  }
-
-  // Por defecto EN si no hay nada guardado
-  const savedLang = localStorage.getItem('lang') || 'en';
-  setLang(savedLang);
-</script>
-
 <body>
   <div class="nav">
     <div class="nav-inner">
@@ -216,9 +198,23 @@
     </footer>
   </main>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<script>
+  function setLang(lang){
+    document.documentElement.setAttribute('lang', lang);
+
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const value = el.dataset[lang];
+      el.textContent = value && value.trim().length ? value : el.dataset.en;
+    });
+
+    localStorage.setItem('lang', lang);
+  }
+
+  const savedLang = localStorage.getItem('lang') || 'en';
+  setLang(savedLang);
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
