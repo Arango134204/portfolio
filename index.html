@@ -423,7 +423,7 @@
       document.documentElement.setAttribute('lang', lang);
       document.querySelectorAll('[data-en]').forEach(el => {
         const value = el.dataset[lang];
-        el.textContent = value && value.trim().length ? value : el.dataset.en;
+        el.innerHTML = value && value.trim().length ? value : el.dataset.en;
       });
       localStorage.setItem('lang', lang);
       
