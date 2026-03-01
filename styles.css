@@ -1,13 +1,13 @@
 /* =========================================
-   VARIABLES & SETUP
+   VARIABLES & SETUP (GLASSMORPHISM PREMIUM)
 ========================================= */
 :root {
-  --bg-base: #030712; /* Fondo casi negro */
+  --bg-base: #030712; 
   --surface: rgba(15, 23, 42, 0.4);
   --surface-hover: rgba(30, 41, 59, 0.6);
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
-  --accent: #2dd4bf; /* Teal/Cyan moderno */
+  --accent: #2dd4bf; 
   --accent-glow: rgba(45, 212, 191, 0.15);
   --purple-glow: rgba(124, 58, 237, 0.1);
   --border-light: rgba(255, 255, 255, 0.08);
@@ -98,7 +98,7 @@ body {
 }
 
 /* =========================================
-   ASIDE (REDES SOCIALES)
+   ASIDE (REDES SOCIALES FLOTANTES)
 ========================================= */
 .social-sidebar {
   position: fixed;
@@ -107,7 +107,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 15px; /* Reducido un poco para que quepan los 6 enlaces cómodamente */
   z-index: 50;
 }
 @media (max-width: 1024px) { .social-sidebar { display: none; } }
@@ -286,7 +286,6 @@ body {
 }
 .ga3-bg { background: linear-gradient(135deg, #022c22, #059669); }
 .mongo-bg { background: linear-gradient(135deg, #1e1b4b, #4338ca); }
-.turnero-bg { background: linear-gradient(135deg, #0f172a, #334155); }
 
 .project-tags { display: flex; gap: 8px; margin-bottom: 16px; }
 .project-tags .tag { font-size: 10px; color: var(--text-secondary); border-color: transparent; background: rgba(0,0,0,0.3); }
@@ -300,7 +299,7 @@ body {
 .project-link:hover { color: var(--accent); padding-left: 5px; }
 
 /* =========================================
-   COTIZADOR (QUOTE SECTION)
+   CONTENEDOR DEL COTIZADOR (QUOTE SECTION)
 ========================================= */
 .quote-section { margin-top: 120px; }
 .section-header.center { flex-direction: column; align-items: center; gap: 16px; text-align: center; margin-bottom: 40px; }
@@ -322,6 +321,64 @@ body {
   border: 1px solid rgba(255,255,255,0.05);
 }
 .loading-pulse { font-family: var(--font-heading); color: var(--text-secondary); animation: pulse 2s infinite; }
+
+/* =========================================
+   ESTILOS INTERNOS DEL COTIZADOR PREMIUM
+========================================= */
+.quote-app { width: 100%; padding: 40px; }
+@media (max-width: 600px) { .quote-app { padding: 20px; } }
+
+.quote-app h3 { font-family: var(--font-heading); font-size: 24px; margin-bottom: 24px; color: var(--text-primary); }
+
+.progress-container { background: rgba(255,255,255,0.05); height: 6px; border-radius: 10px; margin-bottom: 24px; overflow: hidden; }
+.progress-bar { height: 100%; width: 0%; background: var(--accent); transition: width 0.4s ease; box-shadow: 0 0 10px var(--accent-glow); }
+
+.subtotal-header { text-align: right; margin-bottom: 30px; font-family: var(--font-heading); color: var(--text-secondary); font-size: 16px; border-bottom: 1px solid var(--border-light); padding-bottom: 15px;}
+.subtotal-amount { color: var(--accent); font-size: 24px; font-weight: 700; margin-left: 10px; }
+
+.step { display: none; animation: fadeInUp 0.5s ease forwards; }
+.step.active { display: block; }
+
+.quote-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 20px;}
+.quote-option { 
+  background: rgba(15, 23, 42, 0.5); border: 1px solid var(--border-light); 
+  border-radius: 20px; padding: 24px; cursor: pointer; transition: var(--transition); 
+  position: relative;
+}
+.quote-option h4 { font-family: var(--font-heading); font-size: 18px; margin-bottom: 8px; }
+.quote-option p { font-size: 13px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.4;}
+.quote-option .price { font-family: var(--font-heading); font-weight: 700; color: var(--accent); font-size: 15px;}
+
+.quote-option:hover { transform: translateY(-4px); background: var(--surface-hover); border-color: rgba(45, 212, 191, 0.3); }
+.quote-option.active { border-color: var(--accent); background: rgba(45, 212, 191, 0.08); box-shadow: 0 0 0 1px var(--accent); }
+
+/* Contador de páginas */
+.counter { display: flex; align-items: center; justify-content: center; gap: 30px; margin-top: 30px; }
+.btn-counter { 
+  width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--border-light); 
+  background: var(--surface); color: var(--text-primary); font-size: 24px; cursor: pointer; transition: var(--transition);
+}
+.btn-counter:hover { background: var(--text-primary); color: var(--bg-base); }
+.counter-number { font-family: var(--font-heading); font-size: 32px; font-weight: 700; color: var(--accent); }
+
+/* Navegación Inferior */
+.quote-nav { display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-light); }
+.btn-quote-nav { padding: 12px 30px; border-radius: 12px; font-weight: 600; font-family: var(--font-body); cursor: pointer; transition: var(--transition); font-size: 15px;}
+.btn-quote-nav.primary { background: var(--accent); color: #000; border: none; }
+.btn-quote-nav.primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px var(--accent-glow); }
+.btn-quote-nav.ghost { background: transparent; color: var(--text-primary); border: 1px solid var(--border-light); }
+.btn-quote-nav.ghost:hover { border-color: var(--text-primary); }
+
+/* Resumen final */
+.resumen-box { background: rgba(0,0,0,0.3); border: 1px dashed var(--border-light); border-radius: 20px; padding: 30px; font-size: 15px; color: var(--text-secondary); line-height: 1.8;}
+.resumen-box span { color: var(--text-primary); font-weight: 600; }
+.resumen-box .precio-final-text { font-family: var(--font-heading); font-size: 32px; font-weight: 900; color: var(--accent); margin-top: 20px; display: block; }
+
+.btn-whatsapp {
+  display: inline-block; padding: 14px 40px; border-radius: 100px; font-weight: 700; font-family: var(--font-heading);
+  background: linear-gradient(90deg, #25d366, #1ebe57); color: #000; text-decoration: none; transition: var(--transition);
+}
+.btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(37,211,102,0.2); }
 
 /* =========================================
    ANIMACIONES & UTILIDADES
