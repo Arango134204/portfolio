@@ -3,350 +3,137 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Juan José Arango – Web Developer | JavaScript, WordPress, Firebase</title>
-  <meta name="description" content="Juan José Arango is a web developer specializing in modern, high-performance websites using JavaScript, WordPress, Firebase, and responsive design." />
-  <meta name="keywords" content="Juan José Arango, web developer, JavaScript developer, WordPress developer, frontend developer, Colombia" />
+  <title>Juan José Arango – Web Developer</title>
+  <meta name="description" content="Juan José Arango - Web Developer specializing in JavaScript, WordPress, and Firebase." />
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="favicon.png" sizes="32x32">
-<link rel="icon" href="favicon.png" sizes="192x192">
-<link rel="apple-touch-icon" href="favicon.png">
-  <meta property="og:title" content="Juan José Arango – Web Developer" />
-<meta property="og:description" content="Web Developer building modern, high-performance websites with JavaScript, WordPress, and Firebase." />
-<meta property="og:type" content="website" />
-
-<meta property="og:url" content="https://arango134204.github.io/portfolio/" />
-<meta property="og:image" content="https://arango134204.github.io/portfolio/og-image.png" />
+  <link rel="icon" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div class="nav">
+  <nav class="nav">
     <div class="nav-inner">
       <a class="brand" href="#top">
-        <strong>Juan José Arango</strong>
-        <span>Web Developer • JavaScript • Firebase • WordPress</span>
+        <div class="logo-dot"></div>
+        <div class="brand-text">
+          <strong>Juan José Arango</strong>
+          <span>Web Developer Portfolio</span>
+        </div>
       </a>
       <div class="nav-links">
-        <a class="chip" href="#about">About</a>
-        <a class="chip" href="#projects">Projects</a>
+        <a class="chip" href="#projects">Work</a>
         <a class="chip" href="#services">Services</a>
-        <a class="chip" href="#contact">Contact</a>
-        <a class="chip" href="#" onclick="event.preventDefault(); setLang('en')">EN</a>
-<a class="chip" href="#" onclick="event.preventDefault(); setLang('es')">ES</a>
+        <a class="chip" href="#quote-section">Quote Tool</a> <div class="lang-switch">
+          <button onclick="setLang('en')">EN</button>
+          <button onclick="setLang('es')">ES</button>
+        </div>
       </div>
     </div>
-  </div>
+  </nav>
 
   <main id="top" class="container">
-    <section class="hero">
-      <div class="kicker"><b>Open to work</b> • Freelance & Employment</div>
+    <section class="hero fade-up">
+      <div class="badge-status">
+        <span class="dot"></span> 
+        <span data-en="Available for new projects" data-es="Disponible para nuevos proyectos">Available for new projects</span>
+      </div>
 
-      <h1 data-en="Building modern, high-performance websites for businesses."
-    data-es="Creando sitios web modernos y de alto rendimiento para negocios.">
-  Building modern, high-performance websites for businesses.
-</h1>
+      <h1 data-en="Engineering digital experiences that drive growth."
+          data-es="Ingeniería de experiencias digitales que impulsan el crecimiento.">
+        Engineering digital experiences that drive growth.
+      </h1>
 
-      <p class="subtitle"
-   data-en="Web Developer focused on fast, user-friendly experiences using HTML, CSS, JavaScript, Firebase, WordPress, and Hostinger — with real client work and continuous improvement through projects."
-   data-es="Desarrollador web enfocado en experiencias rápidas y fáciles de usar con HTML, CSS, JavaScript, Firebase, WordPress y Hostinger — con trabajo real con clientes y mejora continua mediante proyectos.">
-  Web Developer focused on fast, user-friendly experiences using HTML, CSS, JavaScript,
-  Firebase, WordPress, and Hostinger — with real client work and continuous improvement through projects.
-</p>
+      <p class="subtitle" 
+         data-en="Specializing in high-performance websites with JavaScript, WordPress, and Firebase. From Colombia to the world."
+         data-es="Especializado en sitios de alto rendimiento con JavaScript, WordPress y Firebase. De Colombia para el mundo.">
+        Specializing in high-performance websites with JavaScript, WordPress, and Firebase. From Colombia to the world.
+      </p>
 
       <div class="pills">
-        <span class="pill">JavaScript</span>
-        <span class="pill">Firebase</span>
-        <span class="pill">WordPress</span>
-        <span class="pill">MongoDB</span>
-        <span class="pill">Flask</span>
+        <span class="pill">JavaScript ES6+</span>
+        <span class="pill">WordPress Pro</span>
+        <span class="pill">Firebase Auth & DB</span>
+        <span class="pill">UI/UX Figma</span>
         <span class="pill">REST APIs</span>
-        <span class="pill">Figma (UI & wireframes)</span>
       </div>
 
       <div class="actions">
-  <a class="btn btn-primary" href="#projects">View Projects</a>
-
-  <a class="btn btn-ghost" href="Cv Software engineering.pdf" download>
-    Download CV
-  </a>
-
-  <a class="btn btn-ghost" target="_blank" href="https://wa.me/573006030655">WhatsApp</a>
-  <a class="btn btn-ghost" target="_blank" href="https://www.linkedin.com/in/juan-josé-arango-54924a36a">LinkedIn</a>
-  <a class="btn btn-ghost" target="_blank" href="https://github.com/Arango134204">GitHub</a>
-</div>
+        <a class="btn btn-primary" href="#projects">Explore Work</a>
+        <a class="btn btn-secondary" target="_blank" href="https://wa.me/573006030655">Get in touch</a>
+        <a class="btn btn-ghost" href="Cv Software engineering.pdf" download>Resume.pdf</a>
+      </div>
     </section>
 
-    <div class="grid">
-      <section id="about" class="section fade-up delay-1">
-        <h2>About</h2>
-        <p>
-          I build fast, modern, and user-friendly websites using HTML, CSS, JavaScript, Firebase, WordPress, and Hostinger.
-          I enjoy clean interfaces, solving technical problems, and helping businesses strengthen their online presence.
-        </p>
-        <p>
-          I have developed websites for international clients, including projects in the United States, and I continue improving
-          through real client work and personal projects.
-        </p>
-        <p>
-  My approach combines clean design thinking with solid engineering,
-  ensuring websites look great and perform even better.
-</p>
-      </section>
+    <section id="projects" class="section-container">
+      <h2 class="section-title">Selected Work</h2>
+      <div class="bento-grid">
+        
+        <article class="card featured">
+          <div class="card-content">
+            <span class="tag-category">Featured Project</span>
+            <h3>GA3 Energy Sostenible</h3>
+            <p>Corporate platform for renewable energy. Optimized for 99+ Lighthouse performance score.</p>
+            <div class="meta">
+              <span class="tag">WordPress</span> <span class="tag">Performance</span> <span class="tag">SEO</span>
+            </div>
+            <a href="https://ga3energysostenible.com" target="_blank" class="project-link">Visit Project →</a>
+          </div>
+          <div class="card-visual">
+             <div class="visual-placeholder energy"></div>
+          </div>
+        </article>
 
-      <section class="section fade-up delay-2">
-        <h2>Core strengths</h2>
-        <ul>
-          <li>Front-end development (HTML, CSS, JavaScript)</li>
-          <li>Dynamic data handling with Firebase</li>
-          <li>WordPress customization, hosting & deployment</li>
-          <li>Responsive layouts optimized for all devices</li>
-          <li>Basic Figma usage (UI reference & layout interpretation)</li>
-          <li>Clear communication and on-time delivery</li>
-        </ul>
-      </section>
-    </div>
-
-    <section id="projects" class="section fade-up delay-1" style="margin-top:14px;">
-      <h2 data-en="Projects" data-es="Proyectos">Projects</h2>
-
-      <div class="cards">
         <article class="card">
           <h3>MongoBites</h3>
-          <p>
-  <strong>Problem:</strong> Needed a simple, reliable web system to manage data with a clean UI and fast operations.
-</p>
-<p>
-  <strong>Solution:</strong> Built a Flask + MongoDB application with CRUD modules and RESTful endpoints, structured for scalability.
-</p>
-<ul style="margin:10px 0 0; padding-left:18px; color: var(--muted);">
-  <li>Clean CRUD flows (create, edit, delete, list) with validated inputs</li>
-  <li>REST API structure for future integrations</li>
-  <li>Organized codebase for maintainability</li>
-</ul>
+          <p>Full-stack CRUD system using Flask and MongoDB for data management.</p>
           <div class="meta">
-            <span class="tag">Python</span>
-            <span class="tag">Flask</span>
-            <span class="tag">MongoDB</span>
-            <span class="tag">REST</span>
-            <span class="tag">CRUD</span>
+            <span class="tag">Python</span> <span class="tag">MongoDB</span>
           </div>
-          <div class="links">
-  <a class="link" target="_blank" href="https://github.com/Arango134204/MongoBites">GitHub Repository</a>
-  <a class="link" href="#contact">Request demo</a>
-</div>
+          <a href="https://github.com/Arango134204/MongoBites" class="project-link">View Code</a>
         </article>
 
         <article class="card">
-          <h3>Business Websites (WordPress)</h3>
-          <p>
-  High-performing WordPress websites for businesses — focused on <strong>speed</strong>, <strong>mobile-first design</strong>,
-  and clear structure to increase trust and conversions.
-</p>
-
-<ul style="margin:10px 0 0; padding-left:18px; color: var(--muted);">
-  <li>Responsive design + optimized loading</li>
-  <li>Clean sections: services, about, gallery, contact</li>
-  <li>Hosting setup, SSL, basic SEO structure</li>
-</ul>
+          <h3>Turnero EPS</h3>
+          <p>Smart queue management system concept for healthcare providers.</p>
           <div class="meta">
-            <span class="tag">WordPress</span>
-            <span class="tag">Hosting</span>
-            <span class="tag">Responsive UI</span>
-            <span class="tag">Performance</span>
+            <span class="tag">Angular</span> <span class="tag">Spring Boot</span>
           </div>
-          <div class="links">
-            <a class="link" target="_blank" href="https://wa.me/573006030655?text=Hi%20Juan%2C%20I%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20see%20your%20WordPress%20work%20samples.">
-  Request work samples (WhatsApp)
-</a>
-          </div>
+          <span class="status-badge">In Progress</span>
         </article>
 
-<article class="card">
-  <h3>Turnero EPS (In progress)</h3>
-  <p>
-    Full-stack ticket/queue system concept for healthcare centers, designed to handle user flow and real-time updates.
-  </p>
-  <div class="meta">
-    <span class="tag">Angular</span>
-    <span class="tag">Spring Boot</span>
-    <span class="tag">MySQL</span>
-    <span class="tag">REST</span>
-  </div>
-  <div class="links">
-    <a class="link" href="#contact">Ask for details</a>
-  </div>
-</article>
-
-<article class="card featured">
-  <h3>GA3 Energy Sostenible</h3>
-
-  <p>
-    Corporate website developed for a renewable energy company focused on
-    <strong>solar solutions</strong> and sustainable energy services.
-  </p>
-
-  <p>
-    The goal was to create a <strong>professional, modern, and trustworthy online presence</strong>
-    to showcase services, projects, and attract new clients.
-  </p>
-
-  <ul style="margin:10px 0 0; padding-left:18px; color: var(--muted);">
-    <li>Clean and modern UI focused on credibility and clarity</li>
-    <li>Responsive design optimized for mobile and desktop</li>
-    <li>WordPress customization with performance optimization</li>
-    <li>Hosting configuration, SSL, and deployment</li>
-  </ul>
-
-  <div class="meta">
-    <span class="tag">WordPress</span>
-    <span class="tag">Web Design</span>
-    <span class="tag">Responsive UI</span>
-    <span class="tag">Performance</span>
-    <span class="tag">Hosting</span>
-  </div>
-
-  <div class="links">
-    <a class="link" target="_blank" href="https://ga3energysostenible.com">
-      Visit website
-    </a>
-  </div>
-</article>
-        
       </div>
     </section>
 
-    <section id="services" class="section fade-up delay-2">
-      <h2 data-en="Services" data-es="Servicios">Services</h2>
-      <ul>
-        <li>Business websites (WordPress or custom)</li>
-        <li>Landing pages optimized for conversions</li>
-        <li>Performance and responsiveness improvements</li>
-        <li>Hosting setup and deployment (Netlify / Hostinger)</li>
-      </ul>
-    </section>
-
-    <section class="section fade-up delay-2">
-  <h2>Workflow</h2>
-  <ul>
-    <li><strong>Planning:</strong> Requirements, goals, and target users</li>
-    <li><strong>Design:</strong> Wireframes and UI reference using Figma</li>
-    <li><strong>Development:</strong> Clean, responsive, and performant code</li>
-    <li><strong>Testing:</strong> Cross-device and browser testing</li>
-    <li><strong>Delivery:</strong> Deployment, handoff, and support</li>
-  </ul>
-</section>
-
-    <section id="experience" class="section fade-up delay-2">
-  <h2>Experience</h2>
-  <ul>
-    <li><strong>Web Developer — JD Solutions</strong> (Freelance/Projects)</li>
-    <li>Built responsive business websites and improved performance, SEO basics, and deployment workflows.</li>
-    <li>Worked with international clients and delivered on time with clear communication.</li>
-  </ul>
-</section>
-
-    <section class="section fade-up delay-2">
-  <h2>Timeline</h2>
-
-  <div class="timeline">
-
-    <div class="timeline-item">
-      <div class="timeline-time">2022 – Present</div>
-      <div class="timeline-content">
-        <h3>Software Engineering Student</h3>
-        <p>
-          7th semester student, focused on web development, software architecture,
-          and real-world projects.
-        </p>
+    <section id="quote-section" class="section-container quote-tool-area">
+      <div class="quote-header">
+        <h2 data-en="Instant Web Quote" data-es="Cotizador Instantáneo">Instant Web Quote</h2>
+        <p data-en="Get an estimate for your project in seconds." data-es="Obtén un presupuesto para tu proyecto en segundos.">Get an estimate for your project in seconds.</p>
       </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-time">2023 – Present</div>
-      <div class="timeline-content">
-        <h3>Web Developer — JD Solutions</h3>
-        <p>
-          Development of business websites, custom solutions, and freelance projects
-          for local and international clients.
-        </p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-time">2024</div>
-      <div class="timeline-content">
-        <h3>GA3 Energy Sostenible — Web Project</h3>
-        <p>
-          Designed and developed the corporate website for a renewable energy company,
-          focusing on performance, responsiveness, and brand credibility.
-        </p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-time">2024 – 2025</div>
-      <div class="timeline-content">
-        <h3>MongoBites — Full-Stack Project</h3>
-        <p>
-          Flask and MongoDB application with CRUD operations and RESTful services,
-          built as a scalable learning and production-ready project.
-        </p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-    <section id="contact" class="section fade-up delay-3">
-      <h2 data-en="Contact" data-es="Contacto">Contact</h2>
-      <p>
-        I’m open to web development projects, long-term collaborations, and opportunities to build custom websites.
-      </p>
-
-      <div class="contact-list">
-        <div class="contact-item">
-          <span>Email</span>
-          <a href="mailto:juanjoara1342@icloud.com">juanjoara1342@icloud.com</a>
-        </div>
-
-        <div class="contact-item">
-          <span>LinkedIn</span>
-          <a target="_blank" href="https://www.linkedin.com/in/juan-josé-arango-54924a36a">View profile</a>
-        </div>
-
-        <div class="contact-item">
-          <span>GitHub</span>
-          <a target="_blank" href="https://github.com/Arango134204">Arango134204</a>
-        </div>
-
-        <div class="contact-item">
-          <span>WhatsApp</span>
-          <a target="_blank" href="https://wa.me/573006030655">+57 300 603 0655</a>
+      <div id="cotizador-container" class="cotizador-wrapper">
+        <div class="placeholder-cotizador">
+            <p>Ready to receive the Quote Tool module...</p>
         </div>
       </div>
     </section>
 
     <footer class="footer">
-      © <span id="year"></span> Juan José Arango — Built with HTML/CSS and deployed on Netlify.
+      <div class="footer-line"></div>
+      <p>© <span id="year"></span> Juan José Arango • Built with Code & Passion.</p>
     </footer>
   </main>
 
-<script>
-  function setLang(lang){
-    document.documentElement.setAttribute('lang', lang);
-
-    document.querySelectorAll('[data-en]').forEach(el => {
-      const value = el.dataset[lang];
-      el.textContent = value && value.trim().length ? value : el.dataset.en;
-    });
-
-    localStorage.setItem('lang', lang);
-  }
-
-  const savedLang = localStorage.getItem('lang') || 'en';
-  setLang(savedLang);
-
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+  <script>
+    function setLang(lang){
+      document.documentElement.setAttribute('lang', lang);
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const value = el.dataset[lang];
+        el.textContent = value && value.trim().length ? value : el.dataset.en;
+      });
+      localStorage.setItem('lang', lang);
+    }
+    const savedLang = localStorage.getItem('lang') || 'en';
+    setLang(savedLang);
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
