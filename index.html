@@ -65,7 +65,164 @@
 
       <figure class="hero-visual">
         <div class="image-container">
+          <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Juan José Arango | Creative Software Engineer</title>
+  <meta name="description" content="Portfolio of Juan José Arango, specialized in high-performance web engineering." />
+  <link rel="stylesheet" href="styles.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="bg-mesh"></div>
+
+  <header class="site-header">
+    <nav class="main-nav">
+      <a href="#top" class="logo">
+        <span class="logo-bracket">{</span> JJA <span class="logo-bracket">}</span>
+      </a>
+      <div class="nav-group">
+        <div class="lang-toggle">
+          <button onclick="setLang('en')" class="active">EN</button>
+          <button onclick="setLang('es')">ES</button>
+        </div>
+        <a href="#quote" class="btn-quote" data-en="Get a Quote" data-es="Cotizar">Get a Quote</a>
+      </div>
+    </nav>
+  </header>
+
+  <aside class="social-sidebar">
+    <div class="sidebar-line"></div>
+    <a href="https://github.com/Arango134204" target="_blank" title="GitHub">GH</a>
+    <a href="https://www.linkedin.com/in/juan-josé-arango-54924a36a" target="_blank" title="LinkedIn">IN</a>
+    <a href="https://wa.me/573006030655" target="_blank" title="WhatsApp">WA</a>
+    <div class="sidebar-line"></div>
+  </aside>
+
+  <main id="top" class="content-wrapper">
+    
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="status-pill">
+          <span class="pulse-dot"></span>
+          <span data-en="Open to work & freelance" data-es="Disponible para trabajar y freelance">Open to work & freelance</span>
+        </div>
+        
+        <h1 class="glitch-text" data-en="Building the web, one line of code at a time." data-es="Construyendo la web, una línea de código a la vez.">
+          Building the web, one line of code at a time.
+        </h1>
+        
+        <p class="hero-desc" data-en="Software Engineering student & Web Developer. I specialize in crafting fast, scalable, and visually stunning digital experiences using modern JavaScript ecosystems." data-es="Estudiante de Ingeniería de Software y Desarrollador Web. Me especializo en crear experiencias digitales rápidas, escalables y visualmente impactantes.">
+          Software Engineering student & Web Developer. I specialize in crafting fast, scalable, and visually stunning digital experiences using modern JavaScript ecosystems.
+        </p>
+
+        <div class="tech-stack">
+          <span>JavaScript</span> <span class="separator">/</span>
+          <span>WordPress</span> <span class="separator">/</span>
+          <span>Firebase</span> <span class="separator">/</span>
+          <span>MongoDB</span>
+        </div>
+      </div>
+
+      <figure class="hero-visual">
+        <div class="image-container">
           <img src="Juan.png" alt="Juan José Arango" class="profile-img" onerror="this.style.display='none'">
+          <div class="image-fallback"></div>
+        </div>
+        <figcaption class="visual-badge">Developer <span>🚀</span></figcaption>
+      </figure>
+    </section>
+
+    <section id="about" class="bento-section">
+      <div class="bento-grid">
+        <article class="bento-box span-2 focus-box">
+          <h2 data-en="Engineering Philosophy" data-es="Filosofía de Ingeniería">Engineering Philosophy</h2>
+          <p data-en="I don't just build websites; I engineer solutions. My focus is on clean architecture, optimal performance, and user-centric design." data-es="No solo construyo sitios web; diseño soluciones. Mi enfoque está en la arquitectura limpia, el rendimiento óptimo y el diseño centrado en el usuario.">I don't just build websites; I engineer solutions. My focus is on clean architecture, optimal performance, and user-centric design.</p>
+        </article>
+        
+        <article class="bento-box stat-box">
+          <h3 class="stat-number">3+</h3>
+          <p data-en="Years Coding" data-es="Años Programando">Years Coding</p>
+        </article>
+
+        <article class="bento-box stat-box">
+          <h3 class="stat-number">100%</h3>
+          <p data-en="Client Satisfaction" data-es="Satisfacción del Cliente">Client Satisfaction</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+      <header class="section-header">
+        <h2 data-en="Featured Work" data-es="Trabajos Destacados">Featured Work</h2>
+        <div class="header-line"></div>
+      </header>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-image ga3-bg"></div>
+          <div class="project-info">
+            <div class="project-tags"><span class="tag">WordPress</span><span class="tag">Energy</span></div>
+            <h3>GA3 Energy Sostenible</h3>
+            <p>Corporate platform engineered for high conversion and credibility in the renewable sector.</p>
+            <a href="https://ga3energysostenible.com" target="_blank" class="project-link">View Live Project ↗</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image mongo-bg"></div>
+          <div class="project-info">
+            <div class="project-tags"><span class="tag">Flask</span><span class="tag">MongoDB</span></div>
+            <h3>MongoBites</h3>
+            <p>Scalable RESTful API and CRUD management system built with Python.</p>
+            <a href="https://github.com/Arango134204/MongoBites" target="_blank" class="project-link">Source Code ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="quote" class="quote-section">
+      <header class="section-header center">
+        <h2 data-en="Start a Project" data-es="Iniciar un Proyecto">Start a Project</h2>
+        <p data-en="Use the tool below to estimate your next big idea." data-es="Usa la herramienta a continuación para estimar tu próxima gran idea.">Use the tool below to estimate your next big idea.</p>
+      </header>
+      
+      <div class="quote-app-container">
+        <div class="glass-panel">
+           <div class="loading-pulse">Waiting for Quote Tool injection...</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>© <span id="year"></span> Juan José Arango. Engineered with precision.</p>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang){
+      document.documentElement.setAttribute('lang', lang);
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const value = el.dataset[lang];
+        el.textContent = value && value.trim().length ? value : el.dataset.en;
+      });
+      localStorage.setItem('lang', lang);
+    }
+    const savedLang = localStorage.getItem('lang') || 'en';
+    setLang(savedLang);
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
           <div class="image-fallback"></div>
         </div>
         <figcaption class="visual-badge">Developer <span>🚀</span></figcaption>
