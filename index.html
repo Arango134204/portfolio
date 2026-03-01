@@ -282,65 +282,32 @@
 
   <script>
     // ==========================================
-    // 1. SISTEMA DE IDIOMAS (Portfolio + Cotizador)
-    // ==========================================
-    function setLang(lang){
-      document.documentElement.setAttribute('lang', lang);
-      
-      // Traducir todos los elementos con data-en y data-es
-      document.querySelectorAll('[data-en]').forEach(el => {
-        const value = el.dataset[lang];
-        el.textContent = value && value.trim().length ? value : el.dataset.en;
-      });
-      localStorage.setItem('lang', lang);
-      
-      // Actualizar botones del menú superior
-      document.querySelectorAll('.lang-toggle button').forEach(btn => btn.classList.remove('active'));
-      const activeBtn = document.querySelector(`.lang-toggle button[onclick="setLang('${lang}')"]`);
-      if(activeBtn) activeBtn.classList.add('active');
-
-      // Si el usuario está en el resumen del cotizador, regenerarlo en el nuevo idioma
-      if(typeof calculate === "function") calculate(); 
-    }
-
-    // Inicializar idioma guardado o inglés por defecto
-    const savedLang = localStorage.getItem('lang') || 'en';
-    setLang(savedLang);
-
-    // Actualizar año del footer automáticamente
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-
-    // ==========================================
-    // 2. LÓGICA DEL COTIZADOR PREMIUM
+    // 1. VARIABLES Y ELEMENTOS DEL DOM
     // ==========================================
     const steps = document.querySelectorAll('.step');
     const options = document.querySelectorAll('.quote-option');
     const subtotalEl = document.getElementById('subtotal');
     const progress = document.getElementById('progressBar');
     const resumenEl = document.getElementById('resumen');
+    const nextBtn = document.getElementById('next');
+    const prevBtn = document.getElementById('prev');
 
     let currentStep = 0;
     let pages = 1;
 
-    // Guardamos los datos en ambos idiomas para el WhatsApp
     const data = {
       tipo: null, tipoEn: null, tipoPrecio: 0,
       funcionalidades: [], funcionalidadesEn: [], funcionalidadesPrecio: 0,
       diseño: null, diseñoEn: null, diseñoPrecio: 0
     };
 
+    // ==========================================
+    // 2. LÓGICA DEL COTIZADOR
+    // ==========================================
     function updateStep() {
-      // Mostrar/Ocultar pasos
       steps.forEach((s, i) => s.classList.toggle('active', i === currentStep));
-      
-      // Actualizar barra de progreso
       progress.style.width = (currentStep / (steps.length - 1)) * 100 + '%';
 
-      const nextBtn = document.getElementById('next');
-      const prevBtn = document.getElementById('prev');
-
-      // Controlar botones de Anterior/Siguiente
       prevBtn.style.visibility = currentStep === 0 ? 'hidden' : 'visible';
       
       if (currentStep === steps.length - 1) {
@@ -351,14 +318,12 @@
       }
     }
 
-    // Lógica de clics en las tarjetas del cotizador
     options.forEach(opt => {
       opt.addEventListener('click', () => {
         const price = parseInt(opt.dataset.price || 0);
         const titleEs = opt.dataset.title;
-        const titleEn = opt.dataset.titleEn || titleEs; // Fallback al español si no hay inglés
+        const titleEn = opt.dataset.titleEn || titleEs;
 
-        // Selección única (Tipo de sitio y Diseño)
         if (!opt.classList.contains('multi') && !opt.classList.contains('entrega')) {
           opt.parentElement.querySelectorAll('.quote-option').forEach(o => o.classList.remove('active'));
           opt.classList.add('active');
@@ -366,7 +331,6 @@
           if (currentStep === 0) { data.tipo = titleEs; data.tipoEn = titleEn; data.tipoPrecio = price; }
           if (currentStep === 3) { data.diseño = titleEs; data.diseñoEn = titleEn; data.diseñoPrecio = price; }
         } 
-        // Selección múltiple (Funcionalidades)
         else if (opt.classList.contains('multi')) {
           opt.classList.toggle('active');
           if (opt.classList.contains('active')) {
@@ -383,7 +347,6 @@
       });
     });
 
-    // Lógica especial para botones de entrega (Radio buttons ocultos)
     document.querySelectorAll('.quote-option.entrega').forEach(card => {
       card.addEventListener('click', () => {
         document.querySelectorAll('.quote-option.entrega').forEach(c => c.classList.remove('active'));
@@ -400,17 +363,14 @@
     function aplicarEntrega(total) {
       const inputEntrega = document.querySelector('input[name="entrega"]:checked');
       const entrega = inputEntrega ? inputEntrega.value : 'base';
-      if (entrega === 'urgente') return total * 1.2; // +20%
-      if (entrega === 'extendida') return total * 0.9; // -10%
+      if (entrega === 'urgente') return total * 1.2;
+      if (entrega === 'extendida') return total * 0.9;
       return total;
     }
 
     function calculate() {
       const totalFinal = aplicarEntrega(calcularTotalBase());
-      // Formatear a Pesos Colombianos
       subtotalEl.textContent = totalFinal.toLocaleString('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
-      
-      // Si estamos en el último paso, actualizar el resumen en vivo
       if(currentStep === steps.length - 1) generarResumen(totalFinal);
     }
 
@@ -419,7 +379,6 @@
       const inputEntrega = document.querySelector('input[name="entrega"]:checked');
       const entrega = inputEntrega ? inputEntrega.value : 'base';
       
-      // Textos dependiendo del idioma
       const entregaTextEs = { urgente: 'Urgente (1 sem)', base: 'Base (2 sem)', extendida: 'Extendida (4 sem)' };
       const entregaTextEn = { urgente: 'Urgent (1 week)', base: 'Standard (2 weeks)', extendida: 'Extended (4 weeks)' };
       
@@ -429,7 +388,6 @@
       const currFuncs = isEn ? (data.funcionalidadesEn.length ? data.funcionalidadesEn.join(', ') : 'None') : (data.funcionalidades.length ? data.funcionalidades.join(', ') : 'Ninguna');
       const formattedTotal = total.toLocaleString('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
 
-      // Inyectar HTML en la caja de resumen
       resumenEl.innerHTML = `
         <p><span>${isEn ? 'Website Type:' : 'Tipo de sitio:'}</span> ${currTipo}</p>
         <p><span>${isEn ? 'Additional Pages:' : 'Páginas:'}</span> ${pages}</p>
@@ -440,23 +398,43 @@
         <span class="precio-final-text">${formattedTotal} COP</span>
       `;
 
-      // Armar el mensaje para WhatsApp
       const mensajeEs = `Hola 👋 Quiero cotizar un sitio web.\n\n📌 Detalle:\n- Tipo: ${data.tipo}\n- Páginas: ${pages}\n- Funcionalidades: ${data.funcionalidades.join(', ') || 'Ninguna'}\n- Diseño: ${data.diseño}\n- Entrega: ${entregaTextEs[entrega]}\n\n💰 Total estimado: ${formattedTotal} COP`;
       const mensajeEn = `Hi 👋 I'd like a web quote.\n\n📌 Details:\n- Type: ${data.tipoEn}\n- Pages: ${pages}\n- Features: ${data.funcionalidadesEn.join(', ') || 'None'}\n- Design: ${data.diseñoEn}\n- Timeline: ${entregaTextEn[entrega]}\n\n💰 Estimated total: ${formattedTotal} COP`;
 
       document.getElementById('whatsapp').href = `https://wa.me/573006030655?text=${encodeURIComponent(isEn ? mensajeEn : mensajeEs)}`;
     }
 
-    // Controles de navegación y paginación
-    document.getElementById('next').onclick = () => { if (currentStep < steps.length - 1) currentStep++; updateStep(); };
-    document.getElementById('prev').onclick = () => { if (currentStep > 0) currentStep--; updateStep(); };
-    
+    // Eventos de botones
+    nextBtn.onclick = () => { if (currentStep < steps.length - 1) currentStep++; updateStep(); };
+    prevBtn.onclick = () => { if (currentStep > 0) currentStep--; updateStep(); };
     document.getElementById('plus').onclick = () => { pages++; document.getElementById('pages').textContent = pages; calculate(); };
     document.getElementById('minus').onclick = () => { if (pages > 1) pages--; document.getElementById('pages').textContent = pages; calculate(); };
 
-    // Inicializar visualización del cotizador
+    // ==========================================
+    // 3. SISTEMA DE IDIOMAS Y ARRANQUE (Al final)
+    // ==========================================
+    function setLang(lang){
+      document.documentElement.setAttribute('lang', lang);
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const value = el.dataset[lang];
+        el.textContent = value && value.trim().length ? value : el.dataset.en;
+      });
+      localStorage.setItem('lang', lang);
+      
+      document.querySelectorAll('.lang-toggle button').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.querySelector(`.lang-toggle button[onclick="setLang('${lang}')"]`);
+      if(activeBtn) activeBtn.classList.add('active');
+
+      calculate(); 
+    }
+
+    // Inicializar todo
     updateStep();
     calculate();
+    
+    const savedLang = localStorage.getItem('lang') || 'en';
+    setLang(savedLang);
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
