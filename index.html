@@ -114,7 +114,14 @@
 
       <div class="projects-grid">
         <article class="project-card">
-          <div class="project-image ga3-bg"></div>
+          <div class="gallery-scene">
+            <div class="gallery-wrapper">
+              <img src="ga3-desktop.png" alt="GA3 Desktop" class="mockup-desktop">
+              <img src="ga3-mobile.jpeg" alt="GA3 Mobile" class="mockup-mobile">
+              <div class="mockup-fallback ga3-bg"></div>
+            </div>
+          </div>
+          
           <div class="project-info">
             <div class="project-tags"><span class="tag">WordPress</span><span class="tag">Energy</span></div>
             <h3>GA3 Energy Sostenible</h3>
@@ -124,7 +131,14 @@
         </article>
 
         <article class="project-card">
-          <div class="project-image mongo-bg"></div>
+          <div class="gallery-scene">
+            <div class="gallery-wrapper">
+              <img src="mongo-desktop.png" alt="MongoBites Desktop" class="mockup-desktop">
+              <img src="mongo-mobile.png" alt="MongoBites Mobile" class="mockup-mobile">
+              <div class="mockup-fallback mongo-bg"></div>
+            </div>
+          </div>
+
           <div class="project-info">
             <div class="project-tags"><span class="tag">Python</span><span class="tag">MongoDB</span></div>
             <h3>MongoBites</h3>
@@ -178,14 +192,8 @@
             </div>
 
             <div class="step">
-              <h3 data-en="2. Site Size (Internal Pages)" data-es="2. Tamaño del sitio (Páginas internas)">2. Tamaño del sitio (Páginas internas)</h3>
-              
-              <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;" 
-                 data-en="How many extra sections do you need? (e.g., 'About Us', 'Services', 'Portfolio', 'Contact').<br><br><strong>Note:</strong> Each additional page adds $120.000 COP." 
-                 data-es="¿Cuántas secciones extra necesitas? (Ej: 'Quiénes somos', 'Servicios', 'Portafolio', 'Contacto').<br><br><strong>Nota:</strong> Cada página adicional suma $120.000 COP.">
-                 ¿Cuántas secciones extra necesitas? (Ej: 'Quiénes somos', 'Servicios', 'Portafolio', 'Contacto').<br><br><strong>Nota:</strong> Cada página adicional suma $120.000 COP.
-              </p>
-
+              <h3 data-en="2. Additional Pages" data-es="2. Páginas Adicionales">2. Páginas Adicionales</h3>
+              <p style="color: var(--text-secondary);" data-en="Each additional page adds $120.000 COP" data-es="Cada página adicional suma $120.000 COP">Cada página adicional suma $120.000 COP</p>
               <div class="counter">
                 <button id="minus" class="btn-counter">−</button>
                 <span id="pages" class="counter-number">1</span>
@@ -288,7 +296,30 @@
 
   <script>
     // ==========================================
-    // 1. VARIABLES Y ELEMENTOS DEL DOM
+    // 1. SISTEMA DE IDIOMAS Y ARRANQUE (Ajustado)
+    // ==========================================
+    function setLang(lang){
+      document.documentElement.setAttribute('lang', lang);
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const value = el.dataset[lang];
+        // Cambio clave a innerHTML para soportar etiquetas HTML en las traducciones
+        el.innerHTML = value && value.trim().length ? value : el.dataset.en;
+      });
+      localStorage.setItem('lang', lang);
+      
+      document.querySelectorAll('.lang-toggle button').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.querySelector(`.lang-toggle button[onclick="setLang('${lang}')"]`);
+      if(activeBtn) activeBtn.classList.add('active');
+
+      if(typeof calculate === "function") calculate(); 
+    }
+
+    // Año del footer automático
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+
+    // ==========================================
+    // 2. LÓGICA DEL COTIZADOR PREMIUM
     // ==========================================
     const steps = document.querySelectorAll('.step');
     const options = document.querySelectorAll('.quote-option');
@@ -307,9 +338,6 @@
       diseño: null, diseñoEn: null, diseñoPrecio: 0
     };
 
-    // ==========================================
-    // 2. LÓGICA DEL COTIZADOR
-    // ==========================================
     function updateStep() {
       steps.forEach((s, i) => s.classList.toggle('active', i === currentStep));
       progress.style.width = (currentStep / (steps.length - 1)) * 100 + '%';
@@ -353,6 +381,7 @@
       });
     });
 
+    // Entrega visually active
     document.querySelectorAll('.quote-option.entrega').forEach(card => {
       card.addEventListener('click', () => {
         document.querySelectorAll('.quote-option.entrega').forEach(c => c.classList.remove('active'));
@@ -369,13 +398,14 @@
     function aplicarEntrega(total) {
       const inputEntrega = document.querySelector('input[name="entrega"]:checked');
       const entrega = inputEntrega ? inputEntrega.value : 'base';
-      if (entrega === 'urgente') return total * 1.2;
-      if (entrega === 'extendida') return total * 0.9;
-      return total;
+      if (entrega === 'urgente') return total * 1.2; // +20%
+      if (entrega === 'extendida') return total * 0.9; // -10%
+      return total; // base
     }
 
     function calculate() {
       const totalFinal = aplicarEntrega(calcularTotalBase());
+      // Formatear a Pesos Colombianos
       subtotalEl.textContent = totalFinal.toLocaleString('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
       if(currentStep === steps.length - 1) generarResumen(totalFinal);
     }
@@ -410,37 +440,19 @@
       document.getElementById('whatsapp').href = `https://wa.me/573006030655?text=${encodeURIComponent(isEn ? mensajeEn : mensajeEs)}`;
     }
 
-    // Eventos de botones
+    // Controles
     nextBtn.onclick = () => { if (currentStep < steps.length - 1) currentStep++; updateStep(); };
     prevBtn.onclick = () => { if (currentStep > 0) currentStep--; updateStep(); };
     document.getElementById('plus').onclick = () => { pages++; document.getElementById('pages').textContent = pages; calculate(); };
     document.getElementById('minus').onclick = () => { if (pages > 1) pages--; document.getElementById('pages').textContent = pages; calculate(); };
 
-    // ==========================================
-    // 3. SISTEMA DE IDIOMAS Y ARRANQUE (Al final)
-    // ==========================================
-    function setLang(lang){
-      document.documentElement.setAttribute('lang', lang);
-      document.querySelectorAll('[data-en]').forEach(el => {
-        const value = el.dataset[lang];
-        el.innerHTML = value && value.trim().length ? value : el.dataset.en;
-      });
-      localStorage.setItem('lang', lang);
-      
-      document.querySelectorAll('.lang-toggle button').forEach(btn => btn.classList.remove('active'));
-      const activeBtn = document.querySelector(`.lang-toggle button[onclick="setLang('${lang}')"]`);
-      if(activeBtn) activeBtn.classList.add('active');
-
-      calculate(); 
-    }
-
-    // Inicializar todo
+    // Inicializar visualización del cotizador
     updateStep();
     calculate();
-    
+
+    // Arrancar idioma (Al final para evitar Temporal Dead Zone)
     const savedLang = localStorage.getItem('lang') || 'en';
     setLang(savedLang);
-    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
