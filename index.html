@@ -46,6 +46,9 @@
     <div class="sidebar-line"></div>
     <a href="https://github.com/Arango134204" target="_blank" rel="noopener noreferrer" title="GitHub">GH</a>
     <a href="https://www.linkedin.com/in/juan-josé-arango-54924a36a" target="_blank" rel="noopener noreferrer" title="LinkedIn">IN</a>
+    <a href="https://youtube.com/@JuanJoseArangoDev" target="_blank" rel="noopener noreferrer" title="YouTube">YT</a>
+    <a href="https://tiktok.com/@juanjosearangodev" target="_blank" rel="noopener noreferrer" title="TikTok">TK</a>
+    <a href="https://instagram.com/juan_arango_dev" target="_blank" rel="noopener noreferrer" title="Instagram">IG</a>
     <a href="https://wa.me/573006030655" target="_blank" rel="noopener noreferrer" title="WhatsApp">WA</a>
     <div class="sidebar-line"></div>
   </aside>
@@ -129,16 +132,6 @@
             <a href="https://github.com/Arango134204/MongoBites" target="_blank" rel="noopener noreferrer" class="project-link">Source Code ↗</a>
           </div>
         </article>
-
-        <article class="project-card">
-          <div class="project-image turnero-bg"></div>
-          <div class="project-info">
-            <div class="project-tags"><span class="tag">Angular</span><span class="tag">Spring Boot</span></div>
-            <h3>Turnero EPS</h3>
-            <p data-en="Full-stack queue system concept for healthcare centers to handle user flow." data-es="Concepto de sistema de turnos full-stack para centros de salud para manejar el flujo de usuarios.">Full-stack queue system concept for healthcare centers to handle user flow.</p>
-            <span class="status-text" style="color:var(--accent); font-family:var(--font-heading); font-size:14px; font-weight:700;">[ In Progress ]</span>
-          </div>
-        </article>
       </div>
     </section>
 
@@ -150,7 +143,131 @@
       
       <div class="quote-app-container">
         <div class="glass-panel" id="cotizador-root">
-           <div class="loading-pulse" data-en="Waiting for Quote Tool injection..." data-es="Esperando inyección del Cotizador...">Waiting for Quote Tool injection...</div>
+          <div class="quote-app">
+            
+            <div class="progress-container">
+              <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <div class="subtotal-header">
+              <span data-en="Estimated Total:" data-es="Total estimado:">Total estimado:</span> 
+              <span id="subtotal" class="subtotal-amount">$0 COP</span>
+            </div>
+
+            <div class="step active">
+              <h3 data-en="1. Type of Website" data-es="1. Tipo de sitio">1. Tipo de sitio</h3>
+              <div class="quote-cards">
+                <div class="quote-option" data-title="Landing Page" data-title-en="Landing Page" data-price="450000">
+                  <h4>Landing Page</h4>
+                  <p data-en="1 page focused on sales or campaigns" data-es="1 página enfocada en ventas o campañas">1 página enfocada en ventas o campañas</p>
+                  <span class="price">$450.000 COP</span>
+                </div>
+
+                <div class="quote-option" data-title="Sitio Corporativo" data-title-en="Corporate Site" data-price="800000">
+                  <h4 data-en="Corporate Site" data-es="Sitio Corporativo">Sitio Corporativo</h4>
+                  <p data-en="Up to 5 informative sections" data-es="Hasta 5 secciones informativas">Hasta 5 secciones informativas</p>
+                  <span class="price">$800.000 COP</span>
+                </div>
+
+                <div class="quote-option" data-title="Tienda Online" data-title-en="Online Store" data-price="1500000">
+                  <h4 data-en="Online Store" data-es="Tienda Online">Tienda Online</h4>
+                  <p data-en="Cart, products, and payments" data-es="Carrito, productos y pagos">Carrito, productos y pagos</p>
+                  <span class="price">$1.500.000 COP</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="step">
+              <h3 data-en="2. Additional Pages" data-es="2. Páginas Adicionales">2. Páginas Adicionales</h3>
+              <p style="color: var(--text-secondary);" data-en="Each additional page adds $120.000 COP" data-es="Cada página adicional suma $120.000 COP">Cada página adicional suma $120.000 COP</p>
+              <div class="counter">
+                <button id="minus" class="btn-counter">−</button>
+                <span id="pages" class="counter-number">1</span>
+                <button id="plus" class="btn-counter">+</button>
+              </div>
+            </div>
+
+            <div class="step">
+              <h3 data-en="3. Extra Features" data-es="3. Funcionalidades Extra">3. Funcionalidades Extra</h3>
+              <div class="quote-cards">
+                <div class="quote-option multi" data-title="Formulario" data-title-en="Contact Form" data-price="80000">
+                  <h4 data-en="Contact Form" data-es="Formulario">Formulario</h4>
+                  <p data-en="Direct contact from the web" data-es="Contacto directo desde la web">Contacto directo desde la web</p>
+                  <span class="price">+$80.000</span>
+                </div>
+
+                <div class="quote-option multi" data-title="WhatsApp" data-title-en="WhatsApp Button" data-price="50000">
+                  <h4>WhatsApp</h4>
+                  <p data-en="Direct chat with clients" data-es="Chat directo con clientes">Chat directo con clientes</p>
+                  <span class="price">+$50.000</span>
+                </div>
+
+                <div class="quote-option multi" data-title="SEO Básico" data-title-en="Basic SEO" data-price="150000">
+                  <h4 data-en="Basic SEO" data-es="SEO Básico">SEO Básico</h4>
+                  <p data-en="Google search optimization" data-es="Optimización para Google">Optimización para Google</p>
+                  <span class="price">+$150.000</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="step">
+              <h3 data-en="4. Design Type" data-es="4. Tipo de Diseño">4. Tipo de Diseño</h3>
+              <div class="quote-cards">
+                <div class="quote-option" data-title="Plantilla Base" data-title-en="Base Template" data-price="0">
+                  <h4 data-en="Base Template" data-es="Plantilla Base">Plantilla Base</h4>
+                  <p data-en="Professional predefined design" data-es="Diseño profesional predefinido">Diseño profesional predefinido</p>
+                  <span class="price">$0</span>
+                </div>
+
+                <div class="quote-option" data-title="Diseño Personalizado" data-title-en="Custom Design" data-price="300000">
+                  <h4 data-en="Custom Design" data-es="Diseño Personalizado">Diseño Personalizado</h4>
+                  <p data-en="Unique and exclusive UI/UX" data-es="Diseño único y exclusivo">Diseño único y exclusivo</p>
+                  <span class="price">+$300.000</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="step">
+              <h3 data-en="5. Delivery Time ⏱" data-es="5. Tiempo de entrega ⏱">5. Tiempo de entrega ⏱</h3>
+              <div class="quote-cards">
+                <label class="quote-option entrega">
+                  <input type="radio" name="entrega" value="urgente" style="display:none;">
+                  <h4 data-en="Urgent" data-es="Urgente">Urgente</h4>
+                  <p data-en="Delivery in 1 week. Max priority." data-es="Entrega en 1 semana. Prioridad máxima.">Entrega en 1 semana. Prioridad máxima.</p>
+                  <span class="price">+20%</span>
+                </label>
+
+                <label class="quote-option entrega active">
+                  <input type="radio" name="entrega" value="base" checked style="display:none;">
+                  <h4 data-en="Standard" data-es="Base">Base</h4>
+                  <p data-en="Delivery in 2 weeks. Standard price." data-es="Entrega en 2 semanas. Precio estándar.">Entrega en 2 semanas. Precio estándar.</p>
+                  <span class="price" data-en="Base Price" data-es="Precio base">Precio base</span>
+                </label>
+
+                <label class="quote-option entrega">
+                  <input type="radio" name="entrega" value="extendida" style="display:none;">
+                  <h4 data-en="Extended" data-es="Extendida">Extendida</h4>
+                  <p data-en="Delivery in 4 weeks. Best price." data-es="Entrega en 4 semanas. Mejor precio.">Entrega en 4 semanas. Mejor precio.</p>
+                  <span class="price">-10%</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="step">
+              <h3 data-en="Quote Summary" data-es="Resumen de tu cotización">Resumen de tu cotización</h3>
+              <div id="resumen" class="resumen-box"></div>
+              
+              <div style="text-align: center; margin-top: 30px;">
+                <a id="whatsapp" class="btn-whatsapp" target="_blank" data-en="Send via WhatsApp" data-es="Enviar por WhatsApp">Enviar por WhatsApp</a>
+              </div>
+            </div>
+
+            <div class="quote-nav">
+              <button id="prev" class="btn-quote-nav ghost" data-en="Back" data-es="Anterior">Anterior</button>
+              <button id="next" class="btn-quote-nav primary" data-en="Next Step" data-es="Siguiente">Siguiente</button>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
@@ -164,26 +281,7 @@
   </footer>
 
   <script>
-    // Sistema de Idiomas Simple y Efectivo
-    function setLang(lang){
-      document.documentElement.setAttribute('lang', lang);
-      document.querySelectorAll('[data-en]').forEach(el => {
-        const value = el.dataset[lang];
-        el.textContent = value && value.trim().length ? value : el.dataset.en;
-      });
-      localStorage.setItem('lang', lang);
-      
-      // Actualizar botones activos
-      document.querySelectorAll('.lang-toggle button').forEach(btn => btn.classList.remove('active'));
-      const activeBtn = document.querySelector(`.lang-toggle button[onclick="setLang('${lang}')"]`);
-      if(activeBtn) activeBtn.classList.add('active');
-    }
-
-    const savedLang = localStorage.getItem('lang') || 'en';
-    setLang(savedLang);
-
-    // Año Automático
-    document.getElementById("year").textContent = new Date().getFullYear();
+    
   </script>
 </body>
 </html>
