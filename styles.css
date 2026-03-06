@@ -489,3 +489,49 @@ body {
 
 .site-footer { margin-top: 100px; border-top: 1px solid var(--border-light); padding: 40px 0; text-align: center; }
 .footer-content p { font-family: var(--font-heading); color: var(--text-secondary); font-size: 14px; }
+
+/* 1. Hace que MegaFlujo ocupe las dos columnas */
+.span-2 {
+    grid-column: span 2;
+}
+
+/* 2. Ajusta el escenario para que sea más alto y luzca imponente */
+.project-wide-scene {
+    height: 380px !important;
+}
+
+/* 3. Mantiene el tamaño real de los celulares en el modo ancho */
+.span-2 .mockup-desktop {
+    width: 215px; 
+    height: auto;
+    aspect-ratio: 9/19;
+    right: 28%; /* Lo centramos más al medio */
+    top: 5%;
+}
+
+.span-2 .mockup-mobile {
+    width: 205px;
+    height: auto;
+    aspect-ratio: 9/19;
+    left: 28%; /* Lo centramos más al medio */
+    bottom: -8%;
+    transform: translateZ(80px);
+}
+
+/* 4. Responsive: En celulares volvemos a una sola columna */
+@media (max-width: 768px) {
+    .span-2 {
+        grid-column: span 1;
+    }
+    .project-wide-scene {
+        height: 240px !important;
+    }
+    .span-2 .mockup-desktop, 
+    .span-2 .mockup-mobile {
+        width: 42%;
+        left: auto;
+        right: auto;
+    }
+    .span-2 .mockup-desktop { right: 5%; }
+    .span-2 .mockup-mobile { left: 5%; }
+}
