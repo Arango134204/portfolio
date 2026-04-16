@@ -207,7 +207,18 @@ body {
   box-shadow: 0 30px 60px -20px rgba(0,0,0,0.8);
   animation: float 6s ease-in-out infinite;
 }
-.profile-img { width: 100%; height: 100%; object-fit: cover; border-radius: 22px; z-index: 2; position: relative; }
+
+/* AQUÍ ESTÁ EL CAMBIO PRINCIPAL */
+.profile-img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  object-position: top center; /* <--- Esto evita que se corte el pelo */
+  border-radius: 22px; 
+  z-index: 2; 
+  position: relative; 
+}
+
 .image-fallback {
   position: absolute; top: 0; left: 0; width: 100%; height: 100%;
   background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 22px;
